@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import Home from "./routes/Home.tsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./routes/Root.tsx";
-
+import { Listings } from "./routes/Listings.tsx";
+import { SingleListing } from "./routes/SingleListing.tsx";
+import { Booking } from "./routes/Booking.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -12,7 +14,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <App />,
+        element: <Home />,
+      },
+      {
+        path: "listings",
+        element: <Listings />,
+      },
+      {
+        path: "listings/:id",
+        element: <SingleListing />,
+      },
+      {
+        path: "booking",
+        element: <Booking />,
       },
     ],
   },
