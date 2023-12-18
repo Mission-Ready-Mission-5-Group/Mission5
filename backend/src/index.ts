@@ -8,7 +8,7 @@ const app: Express = express();
 const port = process.env.PORT || 3005;
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
+  res.send("Express and TypeScript mission5 Server");
 });
 
 app.listen(port, () => {
