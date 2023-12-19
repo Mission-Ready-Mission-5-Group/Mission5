@@ -11,7 +11,7 @@ services:
     restart: always
     networks:
       - react-express
-    depends_on:
+    links:
       - backend
 
   backend:
@@ -22,7 +22,7 @@ services:
       - ./backend:/app
       - /app/node_modules
     depends_on:
-      - mongo
+      - listing-db
     networks:
       - express-mongo
       - react-express
@@ -31,7 +31,7 @@ services:
     ports:
       - 8005:3005
 
-  mongo:
+  listing-db:
     restart: always
     image: mongo
     volumes:
