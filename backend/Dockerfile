@@ -7,17 +7,17 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY src ./src
-COPY tsconfig.json ./tsconfig.json
+COPY . .
 
-RUN npm run build
+# for production
+# RUN npm run build
 
-# Runtime stage
-FROM node:latest
+# # Runtime stage
+# FROM node:latest
 
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/package.json ./
-COPY --from=build /app/dist ./dist
+# COPY --from=build /app/node_modules ./node_modules
+# COPY --from=build /app/package.json ./
+# COPY --from=build /app/dist ./dist
 
 EXPOSE 3005
-CMD ["npm", "dev"]
+CMD ["npm", "run", "dev"]
