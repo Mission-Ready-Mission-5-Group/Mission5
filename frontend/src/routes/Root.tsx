@@ -1,10 +1,19 @@
 import { Outlet } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 export const Root = () => {
   return (
     <div>
-      <div>Header</div>
+      <div className='App'>
+				<header id='header'>
+					<Header/>
+				</header>
+			</div>
       <Outlet />
-      <div>Footer</div>
+      <footer id='footer'>
+				<Footer/>	
+			</footer>
     </div>
   );
 };
