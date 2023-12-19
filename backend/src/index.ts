@@ -12,7 +12,7 @@ const app: Express = express();
 app.use(cors());
 
 app.get("/api", (req: Request, res: Response) => {
-  res.send("Express and TypeScript mission5 Server");
+  res.send("Express and TypeScript mission5 Serverrrrr");
 });
 
 app.get("/api/listings", async (req: Request, res: Response) => {

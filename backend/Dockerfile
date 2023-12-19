@@ -20,4 +20,4 @@ COPY --from=build /app/package.json ./
 COPY --from=build /app/dist ./dist
 
 EXPOSE 3005
-CMD ["npm", "start"]
+CMD ["npm", "dev"]
