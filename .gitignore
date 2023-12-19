@@ -1,6 +1,9 @@
 frontend/node_modules/
 backend/node_modules/
+mongo-cli/node_modules/
 backend/dist/
+mongo-cli/dist/
 .idea/
 data
 *.log
+
