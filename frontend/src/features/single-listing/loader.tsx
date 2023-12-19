@@ -1,3 +1,4 @@
-export function singleListingLoader({ params }: any) {
-  return params.id;
+export async function singleListingLoader({ params }: any): Promise<any> {
+  const res = await fetch("/api/listings");
+  return res.json();
 }
