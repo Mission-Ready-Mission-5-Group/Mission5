@@ -14,6 +14,9 @@ router.get("/search/", (req, res) => {
 	console.log("req.query\t", req.query)
 	const { location, gym, park, supermarket, cinema, swimmingPool } = req.query
 
+	// Check if the above queryParams exists, and if they do exist search `listingSchema` for properties
+	// listingSchema
+
 	res.json({ message: "testing2" })
 })
 
