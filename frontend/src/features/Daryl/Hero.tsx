@@ -3,36 +3,52 @@ import heroimg from '../../assets/banner.jpg'
 
 const Hero = () => {
   return (
-    <div className="">
+    <div className="relative">
       <div className="h-[500px] relative">
         <img
           src={heroimg}
           alt=""
           className="w-full h-full object-cover rounded-md relative"
         />
-        
-      <div className="absolute bottom-5 w-full">
-        <div className=" bg-white w-11/12 xl:w-4/5 m-auto grid grid-cols-2 lg:flex justify-between items-center p-5 drop-shadow-2xl md:space-x-5 md:rounded-md">
-        <div className=" flex flex-col space-y-2 ">
-          <label htmlFor="location">Location</label>
-          <input type="text" placeholder="USA" className="outline-0 text-xs"/>
-        </div>
-        <div className="flex flex-col space-y-2">
-          <label htmlFor="property">property type</label>
-          <input type="text" placeholder="property" className="outline-0 text-xs"/>
-        </div>
-        <div className="flex flex-col space-y-2">
-          <label htmlFor="price">Max Price</label>
-          <input type="text" placeholder="$8,544" className="outline-0 text-xs"/>
-        </div>
-        <div>
-          <button className="bg-yellow-400 px-5 py-2 mt-5 md:mt-0 md:rounded-full">Search</button>
-        </div>
-        </div>
-       
-      </div>
-      </div>
 
+        {/* Blur overlay */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          {/* Blur container for the search bar with increased padding */}
+          <div className="bg-black bg-opacity-40 backdrop-filter backdrop-blur-md p-8 rounded-md mx-auto w-full max-w-xl text-center">
+            {/* Text above the search bar */}
+            <p className="text-white text-3xl mb-4">Start your property search here</p>
+
+            {/* Buttons with space in between */}
+            <div className="flex space-x-4">
+              <button className="flex-1 bg-white hover:bg-yellow-500 hover:text-black px-4 py-2 rounded-md text-black">Manage your Properties</button>
+              <button className="flex-1 bg-white hover:bg-blue-500 hover:text-black px-4 py-2 rounded-md text-black">Rent Properties</button>
+            </div>
+
+            {/* Search bar */}
+            <div className="relative mt-4">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-full px-4 py-2 border border-gray-300 rounded-md outline-none bg-transparent text-white placeholder-white"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 absolute top-1/2 right-4 transform -translate-y-1/2 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

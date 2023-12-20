@@ -1,8 +1,8 @@
 const Header = () => {
   return (
-    <header className="p-2 lg:p-4">
-      <div className="navbar bg-base-100">
-        <div className="navbar-start">
+    <header className="p-2 lg:p-4 bg-white">
+      <div className="navbar navbar-brand">
+        <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -22,7 +22,7 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 bg-white"
             >
               <li>
                 <a>Landlords</a>

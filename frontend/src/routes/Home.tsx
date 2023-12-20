@@ -6,15 +6,17 @@ import AboutUs from '../features/Daryl/AboutUs';
 
 const Home = () => {
   return (
-    <div>
+    <div className=" bg-white" >
     {/*Hero*/}
       <Hero/>
+    <div className='container mx-auto text-black'>
     {/*Listings*/}
       <Listings/>
     {/*Client Feedback*/}
       <Client/>
     {/*About*/}
       <AboutUs/>
+    </div>
     </div>
   )
 }
