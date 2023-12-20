@@ -77,8 +77,10 @@ const Hero = () => {
 	const getProperties = () => {
 		const sendRequest = async () => {
 			try {
-				console.log("Getting properties")
-				const res = await fetch(`/api/listings/search?location=${location}`)
+				const reqUrl = `/api/listings/search?location=${location}`
+				console.log("Sent request\t",reqUrl)
+				
+				const res = await fetch(reqUrl)
 				const json = await res.json()
 				console.log("json\t", json)
 			} catch (err) {
