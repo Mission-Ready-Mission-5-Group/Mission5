@@ -1,3 +1,4 @@
+node_modules/
 frontend/node_modules/
 backend/node_modules/
 mongo-cli/node_modules/
@@ -6,4 +7,5 @@ mongo-cli/dist/
 .idea/
 data
 *.log
-
+*/.DS_Store
+.DS_Store
