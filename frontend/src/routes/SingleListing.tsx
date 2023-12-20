@@ -17,7 +17,7 @@ const SingleListing = () => {
           <PropertyPicsCollage images={data.propertyImages} />
         </div>
         <div className="space-y-16 col-end-13 col-span-3 self-center">
-          <Calendar />
+          <Calendar availableFrom={new Date(data.availableFrom)} />
           <MoveInCalc rent={data.price} />
           <GetInTouch />
         </div>
