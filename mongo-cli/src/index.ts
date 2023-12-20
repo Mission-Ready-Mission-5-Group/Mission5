@@ -16,7 +16,7 @@ program
 
 program
   .command("seed")
-  .description("uploads cars into MongoDB")
+  .description("seed all data into MongoDB")
   .action(seedCmd);
 
 program.parse();
