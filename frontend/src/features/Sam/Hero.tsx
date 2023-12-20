@@ -55,6 +55,20 @@ const Hero = () => {
 
 	}
 
+
+	// queryStringToDisplayString = {
+	// 	city: "City",
+	// 	petFriendly: "Pet Friendly",
+	// 	hasElevators: "Has Elevator",
+	// 	furnished: "Furnished",
+	// 	gym: "Gyms",
+	// 	park: "Parks",
+	// 	supermarket: "Supermarkets",
+	// 	cinema: "Cinemas",
+	// 	swimmingPool: "Swimming Pools",
+	// }
+
+
 	const getProperties = () => {
 		const sendRequest = async () => {
 			try {
@@ -98,7 +112,7 @@ const Hero = () => {
 
 
 						{/* SECOND ROW */}
-						<div className='flex search-layer items-center'>
+						<div className='flex search-layer items-center justify-center'>
 
 							{/* Location Button */}
 							<div className="dropdown" ref={placesButtonRef}>
