@@ -1,4 +1,19 @@
-export const PropertyInfo = () => {
+type Props = {
+  location: string;
+  listingId: string;
+  rooms: number;
+  rent: number;
+  parkingSpaces: number;
+  petsAllowed: boolean;
+};
+export const PropertyInfo = ({
+  location,
+  listingId,
+  rooms,
+  rent: price,
+  parkingSpaces,
+  petsAllowed,
+}: Props) => {
   return (
     <div>
       <div className="collapse bg-base-200">
@@ -13,32 +28,32 @@ export const PropertyInfo = () => {
                 {/* row 1 */}
                 <tr>
                   <th>Location</th>
-                  <td>123 pinkvilla street</td>
+                  <td>{location}</td>
                 </tr>
                 {/* row 2 */}
                 <tr>
-                  <th>Location ID</th>
-                  <td>56789PV</td>
+                  <th>Listing ID</th>
+                  <td>{listingId}</td>
                 </tr>
                 {/* row 3 */}
                 <tr>
-                  <th>Price</th>
-                  <td>$500 per week</td>
+                  <th>Rent</th>
+                  <td>${price} per week</td>
                 </tr>
                 {/* row 4*/}
                 <tr>
                   <th>Rooms</th>
-                  <td>3</td>
+                  <td>{rooms}</td>
                 </tr>
                 {/* row 5*/}
                 <tr>
                   <th>Parking spaces</th>
-                  <td>1</td>
+                  <td>{parkingSpaces}</td>
                 </tr>
                 {/* row 6*/}
                 <tr>
                   <th>Pets</th>
-                  <td>Allowed</td>
+                  <td>{petsAllowed ? "Allowed" : "Not Allowed"}</td>
                 </tr>
               </tbody>
             </table>
