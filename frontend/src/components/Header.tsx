@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header className="p-2 lg:p-4 bg-white">
+    <header className="p-2 lg:p-4 bg-white text-black">
       <div className="navbar navbar-brand">
         <div className="navbar-start ">
           <div className="dropdown">

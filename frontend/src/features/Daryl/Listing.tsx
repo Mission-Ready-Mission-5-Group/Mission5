@@ -9,7 +9,6 @@ import house5 from '../../assets/houses/house5.jpg';
 import house6 from '../../assets/houses/house6.jpg';
 import house7 from '../../assets/houses/house7.jpg';
 import house8 from '../../assets/houses/house8.jpg';
-import house9 from '../../assets/houses/house9.jpg';
 
 interface ListingProps {
   image: string;
@@ -35,48 +34,115 @@ const Listing: React.FC = () => {
   };
 
   const listings: ListingProps[] = [
-    { image: house2, bed: '5', bath: '3', garage: '3', price: '$565', location: 'Henderson, Auckland' },
+    { image: house2, bed: '5', bath: '3', garage: '1', price: '$565', location: 'Henderson, Auckland' },
     { image: house3, bed: '5', bath: '3', garage: '1', price: '$620', location: 'Newmarket, Auckland' },
-    { image: house4, bed: '5', bath: '3', garage: '2', price: '$500', location: 'Glenbrook, Waikato' },
-    { image: house5, bed: '5', bath: '3', garage: '3', price: '$576', location: 'Ohaupo, Wellington' },
-    { image: house6, bed: '5', bath: '3', garage: '1', price: 'By Negotiation', location: 'Auckland CBD' },
-    { image: house7, bed: '5', bath: '3', garage: '2', price: 'By Negotiation', location: 'Papakura, Auckland' },
-    { image: house8, bed: '5', bath: '3', garage: '1', price: 'By Negotiation', location: 'Papakura, Auckland' },
-    { image: house9, bed: '3', bath: '2', garage: '2', price: 'By Negotiation', location: 'Hampton Downs, Waikato' },
+    { image: house4, bed: '5', bath: '3', garage: '1', price: '$500', location: 'Glenbrook, Waikato' },
+    { image: house5, bed: '5', bath: '3', garage: '1', price: '$576', location: 'Ohaupo, Wellington' },
+    { image: house6, bed: '5', bath: '3', garage: '1', price: '$537', location: 'Auckland CBD' },
+    { image: house7, bed: '5', bath: '3', garage: '1', price: '$567', location: 'Papakura, Auckland' },
+    { image: house8, bed: '5', bath: '3', garage: '1', price: '$645', location: 'Papakura, Auckland' },
+    { image: house4, bed: '3', bath: '2', garage: '1', price: '$656', location: 'Hampton Downs, Waikato' },
   ];
 
   const group1Listings = listings.slice(0, 4); // First 4 listings
   const group2Listings = listings.slice(4);   // Remaining listings
 
   return (
-    <div className='py-10 mx-auto'>
-      <h1 className='text-2xl font-bold'>Featured Rentals under $700 in Auckland</h1>
-      <div className="deals grid 2xl:grid-cols-5 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-10">
-        {group1Listings.map((listing, index) => (
-          <div
-            key={index}
-            className={`deal h-[350px] bg-white drop-shadow-2xl rounded-xl transform transition-transform hover:scale-105 ${popUpVisible ? 'pointer-events-none' : ''}`}
-            onClick={() => handleListingClick(listing)}
-          >
-            <div className='relative h-[60%]'>
-              <img src={listing.image} alt="" className='w-full h-full object-cover rounded-t-xl' />
-              <div className='absolute top-0 right-0 p-4'>
-                <BsSuitHeart size={"1.5rem"} className="text-white" />
-              </div>
+    <div className='py-10'>
+        <h1 className='text-2xl font-bold'>Featured Rentals under $700 in Auckland</h1>
+        <div className="deals grid 2xl:grid-cols-5 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-10">
+            <div className="deal h-[350px] bg-white drop-shadow-2xl rounded-xl">
+                <div className='relative h-[60%]'>
+                <img src={house2} alt="" className='w-full h-full object-cover rounded-t-xl'/>
+                <div className='absolute top-0 right-0 p-4'>
+                    <BsSuitHeart size={"1.5rem"} className="text-white"/>
+                </div>
+                </div>
+                <div className='p-4 space-y-4'>
+                <div className='flex space-x-5 items-center'>
+                    <div className='flex items-center space-x-1'>
+                        <IoBedOutline/>
+                        <p className='text-sm text-gray-400'>5 bed</p>
+                    </div>
+                    <div className='flex items-center space-x-1'>
+                       <GiBathtub/>
+                       <p className='text-sm text-gray-400'>3 bat</p>
+                    </div>
+                    <div className='flex items-center space-x-1'>
+                     <GiHomeGarage/>
+                        <p className='text-sm text-gray-400'>1 gar</p>
+                    </div>
+                </div>
+                <h1 className='text-2xl font-semibold'>$565</h1>
+                <div className='flex items-center space-x-2'>
+                <IoLocationOutline/>
+                <p className='text-sm text-gray-600'>Henderson, Auckland</p>
+                </div>
+                </div>
+
             </div>
-            <div className='p-4 space-y-4'>
-              <div className='flex space-x-5 items-center'>
-                <div className='flex items-center space-x-1'>
-                  <IoBedOutline />
-                  <p className='text-sm text-gray-400'>{listing.bed} bed</p>
+            <div className="deal h-[350px] bg-white drop-shadow-2xl rounded-xl">
+                <div className='relative h-[60%]'>
+                <img src={house3} alt="" className='w-full h-full object-cover rounded-t-xl'/>
+                <div className='absolute top-0 right-0 p-4'>
+                    <BsSuitHeart size={"1.5rem"} className="text-white"/>
                 </div>
-                <div className='flex items-center space-x-1'>
-                  <GiBathtub />
-                  <p className='text-sm text-gray-400'>{listing.bath} bath</p>
                 </div>
-                <div className='flex items-center space-x-1'>
-                  <GiHomeGarage />
-                  <p className='text-sm text-gray-400'>{listing.garage} gar</p>
+                <div className='p-4 space-y-4'>
+                <div className='flex space-x-5 items-center'>
+                    <div className='flex items-center space-x-1'>
+                        <IoBedOutline/>
+                        <p className='text-sm text-gray-400'>5 bed</p>
+                    </div>
+                    <div className='flex items-center space-x-1'>
+                       <GiBathtub/>
+                       <p className='text-sm text-gray-400'>3 bat</p>
+                    </div>
+                  
+                </div>
+                <h1 className='text-2xl font-semibold'>$620</h1>
+                <div className='flex items-center space-x-2'>
+                <IoLocationOutline/>
+                <p className='text-sm text-gray-600'>Newmarket, Auckland</p>
+                </div>
+                </div>
+
+            </div>
+            <div className="deal h-[350px] bg-white drop-shadow-2xl rounded-xl">
+                <div className='relative h-[60%]'>
+                <img src={house4} alt="" className='w-full h-full object-cover rounded-t-xl'/>
+                <div className='absolute top-0 right-0 p-4'>
+                    <BsSuitHeart size={"1.5rem"} className="text-white"/>
+                </div>
+                </div>
+                <div className='p-4 space-y-4'>
+                <div className='flex space-x-5 items-center'>
+                    <div className='flex items-center space-x-1'>
+                        <IoBedOutline/>
+                        <p className='text-sm text-gray-400'>5 bed</p>
+                    </div>
+                    <div className='flex items-center space-x-1'>
+                       <GiBathtub/>
+                       <p className='text-sm text-gray-400'>3 bat</p>
+                    </div>
+                    <div className='flex items-center space-x-1'>
+                     <GiHomeGarage/>
+                        <p className='text-sm text-gray-400'>1 gar</p>
+                    </div>
+                </div>
+                <h1 className='text-2xl font-semibold'>$500</h1>
+                <div className='flex items-center space-x-2'>
+                <IoLocationOutline/>
+                <p className='text-sm text-gray-600'>Glenbrook, Waikato</p>
+                </div>
+                </div>
+
+            </div>
+            <div className="deal h-[350px] bg-white drop-shadow-2xl rounded-xl">
+                <div className='relative h-[60%]'>
+                <img src={house5} alt="" className='w-full h-full object-cover rounded-t-xl'/>
+                <div className='absolute top-0 right-0 p-4'>
+                    <BsSuitHeart size={"1.5rem"} className="text-white"/>
                 </div>
               </div>
               <h1 className='text-2xl font-semibold'>{listing.price}</h1>
@@ -89,65 +155,28 @@ const Listing: React.FC = () => {
         ))}
       </div>
 
-      <h1 className='text-2xl font-bold'>Featured Rentals </h1>
-      <div className="deals grid 2xl:grid-cols-5 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-10">
-        {group2Listings.map((listing, index) => (
-          <div  
-            key={index}
-            className={`deal h-[350px] bg-white drop-shadow-2xl rounded-xl transform transition-transform hover:scale-105 ${popUpVisible ? 'pointer-events-none' : ''}`}
-            onClick={() => handleListingClick(listing)}
-          >
-            <div className='relative h-[60%]'>
-              <img src={listing.image} alt="" className='w-full h-full object-cover rounded-t-xl' />
-              <div className='absolute top-0 right-0 p-4'>
-                <BsSuitHeart size={"1.5rem"} className="text-white" />
-              </div>
             </div>
-            <div className='p-4 space-y-4'>
-              <div className='flex space-x-5 items-center'>
-                <div className='flex items-center space-x-1'>
-                  <IoBedOutline />
-                  <p className='text-sm text-gray-400'>{listing.bed} bed</p>
+            <div className="deal h-[350px] bg-white drop-shadow-2xl rounded-xl">
+                <div className='relative h-[60%]'>
+                <img src={house7} alt="" className='w-full h-full object-cover rounded-t-xl'/>
+                <div className='absolute top-0 right-0 p-4'>
+                    <BsSuitHeart size={"1.5rem"} className="text-white"/>
                 </div>
-                <div className='flex items-center space-x-1'>
-                  <GiBathtub />
-                  <p className='text-sm text-gray-400'>{listing.bath} bath</p>
                 </div>
-                <div className='flex items-center space-x-1'>
-                  <GiHomeGarage />
-                  <p className='text-sm text-gray-400'>{listing.garage} gar</p>
-                </div>
-              </div>
-              <h1 className='text-2xl font-semibold'>{listing.price}</h1>
-              <div className='flex items-center space-x-2'>
-                <IoLocationOutline />
-                <p className='text-sm text-gray-600'>{listing.location}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-
-
-      {popUpVisible && selectedListing && (
-        <>
-          <div
-            className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50"
-            onClick={handleClosePopUp}
-          />
-          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-xl">
-            <div className='relative h-[60%]'>
-              <img src={selectedListing.image} alt="" className='w-full h-full object-cover rounded-t-xl' />
-              <div className='absolute top-0 right-0 p-4'>
-                <BsSuitHeart size={"1.5rem"} className="text-white" />
-              </div>
-            </div>
-            <div className='p-4 space-y-4'>
-              <div className='flex space-x-5 items-center'>
-                <div className='flex items-center space-x-1'>
-                  <IoBedOutline />
-                  <p className='text-sm text-gray-400'>{selectedListing.bed} bed</p>
+                <div className='p-4 space-y-4'>
+                <div className='flex space-x-5 items-center'>
+                    <div className='flex items-center space-x-1'>
+                        <IoBedOutline/>
+                        <p className='text-sm text-gray-400'>5 bed</p>
+                    </div>
+                    <div className='flex items-center space-x-1'>
+                       <GiBathtub/>
+                       <p className='text-sm text-gray-400'>3 bat</p>
+                    </div>
+                    <div className='flex items-center space-x-1'>
+                     <GiHomeGarage/>
+                        <p className='text-sm text-gray-400'>1 gar</p>
+                    </div>
                 </div>
                 <div className='flex items-center space-x-1'>
                   <GiBathtub />
@@ -172,4 +201,4 @@ const Listing: React.FC = () => {
   );
 };
 
-export default Listing;
+export default Listing

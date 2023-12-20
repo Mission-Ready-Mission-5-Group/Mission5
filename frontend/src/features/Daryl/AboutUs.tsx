@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <div className="pt-20 pb-16">
+    <div className="pt-20 pb-16 text-black">
       <div className="flex flex-wrap gap-4 items-center justify-center">
         <div className="flex-1 basis-[18rem]">
           <div className="relative overflow rounded-lg">

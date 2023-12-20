@@ -1,5 +1,6 @@
 import React from 'react'
 import heroimg from '../../assets/banner.jpg'
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -16,12 +17,12 @@ const Hero = () => {
           {/* Blur container for the search bar with increased padding */}
           <div className="bg-black bg-opacity-40 backdrop-filter backdrop-blur-md p-8 rounded-md mx-auto w-full max-w-xl text-center">
             {/* Text above the search bar */}
-            <p className="text-white text-3xl mb-4">Start your property search here</p>
+            <p className="text-white text-xl font-bold mb-4">Start your property search here</p>
 
             {/* Buttons with space in between */}
             <div className="flex space-x-4">
               <button className="flex-1 bg-white hover:bg-yellow-500 hover:text-black px-4 py-2 rounded-md text-black">Manage your Properties</button>
-              <button className="flex-1 bg-white hover:bg-blue-500 hover:text-black px-4 py-2 rounded-md text-black">Rent Properties</button>
+              <Link to="/listings"><button className="flex-1 bg-white hover:bg-blue-500 hover:text-black px-4 py-2 rounded-md text-black">Rent Properties</button></Link>
             </div>
 
             {/* Search bar */}
@@ -52,5 +53,6 @@ const Hero = () => {
     </div>
   );
 };
+
 
 export default Hero

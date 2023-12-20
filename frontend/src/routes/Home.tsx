@@ -6,7 +6,7 @@ import AboutUs from '../features/Daryl/AboutUs';
 
 const Home = () => {
   return (
-    <div className=" bg-white" >
+    <div className='bg-white'>
     {/*Hero*/}
       <Hero/>
     <div className='container mx-auto text-black'>
