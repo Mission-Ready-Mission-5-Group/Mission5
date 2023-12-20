@@ -2,6 +2,7 @@ import { program } from "commander";
 import { seedCmd } from "./commands/seedCmd";
 import { listingsCmd } from "./commands/listingsCmd";
 import { initDB } from "./database";
+import { dropCmd } from "./commands/dropCmd";
 
 console.log("MongoDB CLI");
 
@@ -18,5 +19,10 @@ program
   .command("seed")
   .description("seed all data into MongoDB")
   .action(seedCmd);
+
+program
+  .command("drop")
+  .description("drop all data in MongoDB")
+  .action(dropCmd);
 
 program.parse();
