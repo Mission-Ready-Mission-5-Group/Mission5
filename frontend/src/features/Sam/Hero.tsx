@@ -10,9 +10,9 @@ import { RxCross1 } from "react-icons/rx";
 type Places = "Parnell" | "NewMarket"
 type Filter = 'Gyms' | 'Parks' | 'Supermarkets' | 'Cinemas' | 'Swimming Pools' | "Pet Friendly" | "Has Elevators" | "Furnished"
 
-type FilterVar = "city" | "petFriendly" | "hasElevators" | "furnished" | "gym" | "park" | "supermarket" | "cinema" | "swimmingPool"
+type QueryStringNames = "city" | "petFriendly" | "hasElevators" | "furnished" | "gym" | "park" | "supermarket" | "cinema" | "swimmingPool"
 
-const varToDisplayString = {
+const queryStringToDisplayString = {
 	city: "City",
 	petFriendly: "Pet Friendly",
 	hasElevators: "Has Elevator",
@@ -33,12 +33,12 @@ const Hero = () => {
 	const placesButtonRef = useRef<HTMLDivElement>()
 
 	// Filters
-	const [filters, setFilters] = useState<FilterVar[]>([])
+	const [filters, setFilters] = useState<QueryStringNames[]>([])
 	const [filtersIsOpen, setFiltersIsOpen] = useState<boolean>(false)
 	const filtersButtonRef = useRef<HTMLDivElement>()
 
 	// Methods
-	const addFilter = (newFilter: FilterVar) => {
+	const addFilter = (newFilter: QueryStringNames) => {
 		setFilters(filters => {
 			const newFilters = filters.includes(newFilter) ? filters : [newFilter, ...filters]
 			console.log("filters after add\t", newFilters)
@@ -46,7 +46,7 @@ const Hero = () => {
 		})
 	}
 
-	const removeFilter = (filterToRemove: FilterVar) => {
+	const removeFilter = (filterToRemove: QueryStringNames) => {
 		setFilters(filters => {
 			const remainingFilters = filters.filter(filter => filter !== filterToRemove)
 			console.log("filters after remove\t", remainingFilters)
@@ -138,7 +138,7 @@ const Hero = () => {
 						<div className='flex flex-wrap'> {/*  bg-[#500] */}
 							{
 								filters.map(filter => (
-									<span className="badge m-1 cursor-pointer" key={filter} onClick={() => removeFilter(filter)}>{varToDisplayString[filter]} <span className='relative top-0.5 pl-1'><RxCross1 size={8} /></span></span>
+									<span className="badge m-1 cursor-pointer" key={filter} onClick={() => removeFilter(filter)}>{queryStringToDisplayString[filter]} <span className='relative top-0.5 pl-1'><RxCross1 size={8} /></span></span>
 								))
 							}
 						</div>
