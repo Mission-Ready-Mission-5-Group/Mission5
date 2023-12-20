@@ -2,7 +2,7 @@ import express from "express";
 import { getListings } from "../listingsGetter";
 import { Request, Response } from "express"
 import { listing } from "../models/listings";
-import { SearchQuery } from "../types/listings";
+// import { DbSearchQuery } from "../types/listings";
 
 const router = express.Router()
 
@@ -13,30 +13,45 @@ router.get("/", async (req: Request, res: Response) => {
 
 
 
-// Route Example: /api/listings/search&city=auckland&petFriendly=1&gym=1&park=1
+// Route Example: /api/listings/search&location=auckland&petFriendly=1&gym=1&park=1
 router.get("/search/", async (req, res) => {
 	try {
 
 		console.log("search\t")
 		console.log("req.query\t", req.query)
-		const { city, petFriendly, hasElevators, furnished, gym, park, supermarket, cinema, swimmingPool } = req.query
+		const { location, petFriendly, hasElevators, furnished, gym, park, supermarket, cinema, swimmingPool } = req.query
 
-		// const city = "auckland"
-		const searchQuery: SearchQuery = {}
-		if (city && typeof city === "string") searchQuery.city = new RegExp(city, 'i');
-		if (petFriendly === "1") searchQuery.petFriendly = true;
-		if (hasElevators === "1") searchQuery.hasElevators = true;
-		if (furnished === "1") searchQuery.furnished = true;
+		/* WARNING TO FUTURE ME */
+		/* 
+			location - location can either be for CITY or for SUBURB
+		*/
+		type DbSearchQuery = {
+			$or?: [{ city?: RegExp }, { suburb?: RegExp }];
+			petFriendly?: boolean;
+			hasElevators?: boolean;
+			furnished?: boolean;
+			// Add other search criteria as needed
+		  }
+
+		// db search query
+		const dbSearchQuery: DbSearchQuery = {}
+		if (location && typeof location === "string") dbSearchQuery["$or"] = [
+			{city: new RegExp(location, 'i')},
+			{suburb: new RegExp(location, 'i')}
+		]
+		if (petFriendly === "1") dbSearchQuery.petFriendly = true;
+		if (hasElevators === "1") dbSearchQuery.hasElevators = true;
+		if (furnished === "1") dbSearchQuery.furnished = true;
 
 
-		const listings = await listing.find(searchQuery)
+		const listings = await listing.find(dbSearchQuery)
 		console.log("listings \y", listings)
 
-		// if (gym === "1") searchQuery.gym = gym;
-		// if (park === "1") searchQuery.park = park;
-		// if (supermarket === "1") searchQuery.supermarket = supermarket;
-		// if (cinema === "1") searchQuery.cinema = cinema;
-		// if (swimmingPool === "1") searchQuery.swimmingPool = swimmingPool;
+		// if (gym === "1") dbSearchQuery.gym = gym;
+		// if (park === "1") dbSearchQuery.park = park;
+		// if (supermarket === "1") dbSearchQuery.supermarket = supermarket;
+		// if (cinema === "1") dbSearchQuery.cinema = cinema;
+		// if (swimmingPool === "1") dbSearchQuery.swimmingPool = swimmingPool;
 
 
 		res.json(listings)

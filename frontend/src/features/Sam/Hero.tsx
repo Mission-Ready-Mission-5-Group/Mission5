@@ -7,7 +7,7 @@ import { RxCross1 } from "react-icons/rx";
 /* 
 				<div className="absolute bg-[#333333] inset-0 flex justify-center items-center">
 */
-type Location = "Parnell" | "NewMarket"
+type Location = "Parnell" | "NewMarket" | "Auckland"
 type Filter = 'Gyms' | 'Parks' | 'Supermarkets' | 'Cinemas' | 'Swimming Pools' | "Pet Friendly" | "Has Elevators" | "Furnished"
 
 type QueryStringNames = "location" | "petFriendly" | "hasElevators" | "furnished" | "gym" | "park" | "supermarket" | "cinema" | "swimmingPool"
@@ -78,7 +78,7 @@ const Hero = () => {
 		const sendRequest = async () => {
 			try {
 				console.log("Getting properties")
-				const res = await fetch("/api/listings/search?location=auckland")
+				const res = await fetch(`/api/listings/search?location=${location}`)
 				const json = await res.json()
 				console.log("json\t", json)
 			} catch (err) {
@@ -128,6 +128,7 @@ const Hero = () => {
 								<ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
 									<li><a onClick={() => setLocationHandler("Parnell")}>Parnell</a></li>
 									<li><a onClick={() => setLocationHandler("NewMarket")}>NewMarket</a></li>
+									<li><a onClick={() => setLocationHandler("Auckland")}>Auckland</a></li>
 								</ul>
 							</div>
 
