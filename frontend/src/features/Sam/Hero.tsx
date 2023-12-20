@@ -41,9 +41,18 @@ const Hero = () => {
 	const addFilter = (newFilter: FilterVar) => {
 		setFilters(filters => {
 			const newFilters = filters.includes(newFilter) ? filters : [newFilter, ...filters]
-			console.log("newFilters\t", newFilters)
+			console.log("filters after add\t", newFilters)
 			return newFilters
 		})
+	}
+
+	const removeFilter = (filterToRemove: FilterVar) => {
+		setFilters(filters => {
+			const remainingFilters = filters.filter(filter => filter !== filterToRemove)
+			console.log("filters after remove\t", remainingFilters)
+			return remainingFilters
+		})
+
 	}
 
 
@@ -108,7 +117,7 @@ const Hero = () => {
 						<div className='flex flex-wrap'> {/*  bg-[#500] */}
 							{
 								filters.map(filter => (
-									<span className="badge m-1" key={filter}>{varToDisplayString[filter]} <span className='relative top-0.5 pl-1'><RxCross1 size={8} /></span></span>
+									<span className="badge m-1 cursor-pointer" key={filter} onClick={() => removeFilter(filter)}>{varToDisplayString[filter]} <span className='relative top-0.5 pl-1'><RxCross1 size={8} /></span></span>
 								))
 							}
 						</div>
