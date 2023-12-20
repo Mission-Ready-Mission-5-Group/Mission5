@@ -15,9 +15,11 @@ const SingleListing = () => {
         {JSON.stringify(data)}
       </h1> */}
 
-      <div className="flex">
-        <PropertyPicsCollage />
-        <div className="space-y-8">
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-start-1 col-end-9">
+          <PropertyPicsCollage />
+        </div>
+        <div className="space-y-16 col-end-13 col-span-3">
           <Calendar />
           <MoveInCalc />
           <GetInTouch />
