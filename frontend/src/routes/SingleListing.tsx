@@ -10,7 +10,7 @@ import { PropertyPicsCollage } from "../features/single-listing/PropertyPicsColl
 const SingleListing = () => {
   const data = useLoaderData();
   return (
-    <div>
+    <div className="p-16 space-y-8">
       {/* <h1 className="text-3xl font-bold text-pink-800">
         {JSON.stringify(data)}
       </h1> */}
