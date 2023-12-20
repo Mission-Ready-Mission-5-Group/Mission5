@@ -7,7 +7,6 @@ const Listings = () => {
   return ( 
     <>
       <Hero/>
-      <Card/>
     </>
   );
 };

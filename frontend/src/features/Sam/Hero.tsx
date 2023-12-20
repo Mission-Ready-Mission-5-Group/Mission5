@@ -111,6 +111,7 @@ const Hero = () => {
 
 	return (
 		<>
+			{/* Listings Search Area */}
 			<div className='relative '>
 				{/* Background */}
 				<img
@@ -172,8 +173,17 @@ const Hero = () => {
 						</div>
 					</div>
 				</div>
+			</div>
 
 
+			{/* Listings View */}
+			<div className='bg-lime-600 w-full'>
+				hello
+				asdasd
+				asd<br/>asd
+				<div>
+
+				</div>
 			</div>
 		</>
 	);
