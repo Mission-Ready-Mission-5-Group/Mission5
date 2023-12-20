@@ -82,7 +82,10 @@ const Hero = () => {
 				<div className="absolute bg-black bg-opacity-10 inset-0 flex justify-center items-center note-covers-image-to-allow-centering-of-insides">
 					<div className="text-center bg-[#000] bg-opacity-40 flex p-6 rounded-2xl flex-col note-this-is-the-container-for-all-the-search-related-elements">{/* w-3/5  */}
 
-						<div className='flex search-layer'>
+
+
+						{/* SECOND ROW */}
+						<div className='flex search-layer items-center'>
 
 							{/* Location Button */}
 							<div className="dropdown" ref={placesButtonRef}>
@@ -113,7 +116,12 @@ const Hero = () => {
 									<li><a onClick={() => addFilter("furnished")}>Furnished</a></li>
 								</ul>
 							</div>
+
+							<button className="btn btn-active btn-primary">Search</button>
 						</div>
+
+
+						{/* THRID ROW */}
 						<div className='flex flex-wrap'> {/*  bg-[#500] */}
 							{
 								filters.map(filter => (
