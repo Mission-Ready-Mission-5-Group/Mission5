@@ -1,5 +1,15 @@
+
+import heroimg from '../assets/banner.jpg'
+import Card from '../features/Samuel/Card';
+import Hero from '../features/Samuel/Hero';
+
 const Listings = () => {
-  return <h1 className="text-3xl font-bold text-yellow-600">Listing Page</h1>;
+  return ( 
+    <>
+      <Hero/>
+      <Card/>
+    </>
+  );
 };
 
 export default Listings;
