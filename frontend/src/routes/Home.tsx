@@ -1,5 +1,22 @@
-function Home() {
-  return <h1 className="text-3xl font-bold text-orange-600">Home page!</h1>;
+import React from 'react';
+import Hero from '../features/Daryl/Hero';
+import Listings from '../features/Daryl/Listing';
+import Client from '../features/Daryl/Client';
+import AboutUs from '../features/Daryl/AboutUs';
+
+const Home = () => {
+  return (
+    <div>
+    {/*Hero*/}
+      <Hero/>
+    {/*Listings*/}
+      <Listings/>
+    {/*Client Feedback*/}
+      <Client/>
+    {/*About*/}
+      <AboutUs/>
+    </div>
+  )
 }
- 
-export default Home;
+
+export default Home
