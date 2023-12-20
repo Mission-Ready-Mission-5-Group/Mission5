@@ -6,4 +6,5 @@ mongo-cli/dist/
 .idea/
 data
 *.log
-
+*/.DS_Store
+.DS_Store

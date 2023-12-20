@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { GetInTouch } from "../features/single-listing/GetInTouch";
-import { CardBootstrap } from "../features/single-listing/CardBootstrap";
+import { Description } from "../features/single-listing/Description";
 
 const SingleListing = () => {
   const data = useLoaderData();
@@ -11,7 +11,7 @@ const SingleListing = () => {
       </h1>
       <div className="flex gap-2">
         <GetInTouch />
-        <CardBootstrap />
+        <Description />
       </div>
     </div>
   );
