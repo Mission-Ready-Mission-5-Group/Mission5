@@ -77,9 +77,15 @@ const Hero = () => {
 	const getProperties = () => {
 		const sendRequest = async () => {
 			try {
-				const reqUrl = `/api/listings/search?location=${location}`
+
+				// Create query string
+				const queryString = filters.map(filter=>`${filter}=1`).join().replace(/\,/g,"&")
+				console.log("queryString\t",queryString)
+
+				// Create url
+				const reqUrl = `/api/listings/search?location=${location}&${queryString}`
 				console.log("Sent request\t",reqUrl)
-				
+
 				const res = await fetch(reqUrl)
 				const json = await res.json()
 				console.log("json\t", json)
