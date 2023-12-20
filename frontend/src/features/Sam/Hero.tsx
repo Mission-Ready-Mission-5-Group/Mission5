@@ -7,13 +7,13 @@ import { RxCross1 } from "react-icons/rx";
 /* 
 				<div className="absolute bg-[#333333] inset-0 flex justify-center items-center">
 */
-type Places = "Parnell" | "NewMarket"
+type Location = "Parnell" | "NewMarket"
 type Filter = 'Gyms' | 'Parks' | 'Supermarkets' | 'Cinemas' | 'Swimming Pools' | "Pet Friendly" | "Has Elevators" | "Furnished"
 
-type QueryStringNames = "city" | "petFriendly" | "hasElevators" | "furnished" | "gym" | "park" | "supermarket" | "cinema" | "swimmingPool"
+type QueryStringNames = "location" | "petFriendly" | "hasElevators" | "furnished" | "gym" | "park" | "supermarket" | "cinema" | "swimmingPool"
 
 const queryStringToDisplayString = {
-	city: "City",
+	location: "Location",
 	petFriendly: "Pet Friendly",
 	hasElevators: "Has Elevator",
 	furnished: "Furnished",
@@ -27,10 +27,10 @@ const queryStringToDisplayString = {
 // city, petFriendly, hasElevators, furnished, gym, park, supermarket, cinema, swimmingPool
 /* 'gym', 'park', 'supermarket', 'cinema', 'swimmingPool' */
 const Hero = () => {
-	// Place
-	const [place, setPlace] = useState<Places>("Parnell")
-	const [placesIsOpened, setPlacesIsOpened] = useState<boolean>(false)
-	const placesButtonRef = useRef<HTMLDivElement>()
+	// Location
+	const [location, setLocation] = useState<Location>("Parnell")
+	const [locationsIsOpened, setLocationsIsOpened] = useState<boolean>(false)
+	const locationsButtonRef = useRef<HTMLDivElement>()
 
 	// Filters
 	const [filters, setFilters] = useState<QueryStringNames[]>([])
@@ -38,6 +38,11 @@ const Hero = () => {
 	const filtersButtonRef = useRef<HTMLDivElement>()
 
 	// Methods
+	const setLocationHandler = (location:Location) => {
+		console.log("Location\t",location)
+		setLocation(location)
+	}
+
 	const addFilter = (newFilter: QueryStringNames) => {
 		setFilters(filters => {
 			const newFilters = filters.includes(newFilter) ? filters : [newFilter, ...filters]
@@ -57,7 +62,7 @@ const Hero = () => {
 
 
 	// queryStringToDisplayString = {
-	// 	city: "City",
+	// 	location: "location",
 	// 	petFriendly: "Pet Friendly",
 	// 	hasElevators: "Has Elevator",
 	// 	furnished: "Furnished",
@@ -73,7 +78,7 @@ const Hero = () => {
 		const sendRequest = async () => {
 			try {
 				console.log("Getting properties")
-				const res = await fetch("/api/listings/search?city=auckland")
+				const res = await fetch("/api/listings/search?location=auckland")
 				const json = await res.json()
 				console.log("json\t", json)
 			} catch (err) {
@@ -86,8 +91,8 @@ const Hero = () => {
 	// Hooks
 	useEffect(() => {
 		const clickHandler = (e: MouseEvent) => {
-			console.log(placesButtonRef.current)
-			if (!(placesButtonRef.current && placesButtonRef.current.contains(e.target as Node))) setPlacesIsOpened(false)
+			console.log(locationsButtonRef.current)
+			if (!(locationsButtonRef.current && locationsButtonRef.current.contains(e.target as Node))) setLocationsIsOpened(false)
 			if (!(filtersButtonRef.current && filtersButtonRef.current.contains(e.target as Node))) setFiltersIsOpen(false)
 
 		}
@@ -115,14 +120,14 @@ const Hero = () => {
 						<div className='flex search-layer items-center justify-center'>
 
 							{/* Location Button */}
-							<div className="dropdown" ref={placesButtonRef}>
-								<div tabIndex={0} role="button" className="btn m-1  w-[200px] flex justify-between" onClick={() => setPlacesIsOpened(true)}>
-									<div>{place}</div>
-									<div>{placesIsOpened ? <RiArrowDropUpLine size={25} /> : <RiArrowDropDownLine size={25} />}</div>
+							<div className="dropdown" ref={locationsButtonRef}>
+								<div tabIndex={0} role="button" className="btn m-1  w-[200px] flex justify-between" onClick={() => setLocationsIsOpened(true)}>
+									<div>{location}</div>
+									<div>{locationsIsOpened ? <RiArrowDropUpLine size={25} /> : <RiArrowDropDownLine size={25} />}</div>
 								</div>
 								<ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-									<li><a onClick={() => setPlace("Parnell")}>Parnell</a></li>
-									<li><a onClick={() => setPlace("NewMarket")}>NewMarket</a></li>
+									<li><a onClick={() => setLocationHandler("Parnell")}>Parnell</a></li>
+									<li><a onClick={() => setLocationHandler("NewMarket")}>NewMarket</a></li>
 								</ul>
 							</div>
 
