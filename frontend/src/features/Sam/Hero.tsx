@@ -27,6 +27,7 @@ const queryStringToDisplayString = {
 // city, petFriendly, hasElevators, furnished, gym, park, supermarket, cinema, swimmingPool
 /* 'gym', 'park', 'supermarket', 'cinema', 'swimmingPool' */
 const Hero = () => {
+	// ############################ Hooks ###############################
 	// Location
 	const [location, setLocation] = useState<Location>("Parnell")
 	const [locationsIsOpened, setLocationsIsOpened] = useState<boolean>(false)
@@ -37,12 +38,14 @@ const Hero = () => {
 	const [filtersIsOpen, setFiltersIsOpen] = useState<boolean>(false)
 	const filtersButtonRef = useRef<HTMLDivElement>()
 
-	// Methods
+	// ############################ Methods ###############################
+	// 
 	const setLocationHandler = (location:Location) => {
 		console.log("Location\t",location)
 		setLocation(location)
 	}
 
+	// 
 	const addFilter = (newFilter: QueryStringNames) => {
 		setFilters(filters => {
 			const newFilters = filters.includes(newFilter) ? filters : [newFilter, ...filters]
@@ -51,6 +54,7 @@ const Hero = () => {
 		})
 	}
 
+	// 
 	const removeFilter = (filterToRemove: QueryStringNames) => {
 		setFilters(filters => {
 			const remainingFilters = filters.filter(filter => filter !== filterToRemove)
@@ -60,20 +64,7 @@ const Hero = () => {
 
 	}
 
-
-	// queryStringToDisplayString = {
-	// 	location: "location",
-	// 	petFriendly: "Pet Friendly",
-	// 	hasElevators: "Has Elevator",
-	// 	furnished: "Furnished",
-	// 	gym: "Gyms",
-	// 	park: "Parks",
-	// 	supermarket: "Supermarkets",
-	// 	cinema: "Cinemas",
-	// 	swimmingPool: "Swimming Pools",
-	// }
-
-
+	// 
 	const getProperties = () => {
 		const sendRequest = async () => {
 			try {
@@ -96,7 +87,8 @@ const Hero = () => {
 		sendRequest()
 	}
 
-	// Hooks
+
+	// ############################ Hooks ###############################
 	useEffect(() => {
 		const clickHandler = (e: MouseEvent) => {
 			console.log(locationsButtonRef.current)
@@ -109,6 +101,8 @@ const Hero = () => {
 		return () => document.removeEventListener("mousedown", clickHandler)
 	}, [])
 
+
+	
 	return (
 		<>
 			{/* Listings Search Area */}
