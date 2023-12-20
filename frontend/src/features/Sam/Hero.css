@@ -11,3 +11,6 @@
   .container {
 	position: relative;
   }
+  .search-layer{
+	margin: 2rem 0;
+  }
