@@ -23,8 +23,8 @@ export default function Maps() {
   };
 
   return (
-    <div className="grid grid-cols-8">
-      <div style={{ height: "100vh", width: "100%" }} className="col-span-6">
+    <div className="lg:grid lg:grid-cols-8 lg:gap-2">
+      <div style={{ height: "100vh", width: "100%" }} className="lg:col-span-6">
         <GoogleMapReact
           bootstrapURLKeys={{
             key: import.meta.env.VITE_GOOGLE_API_KEY as string,
@@ -35,7 +35,7 @@ export default function Maps() {
           <IoMdPin size={60} color="red" />
         </GoogleMapReact>
       </div>
-      <div className="flex flex-col col-span-2">
+      <div className="hidden lg:flex lg:flex-col lg:col-span-2 gap-1">
         <button className="p-8 bg-gray-200 hover:bg-primary hover:text-white">
           Gyms nearby
         </button>
