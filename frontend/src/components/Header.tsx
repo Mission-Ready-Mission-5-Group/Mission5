@@ -1,4 +1,4 @@
-export const Header = () => {
+const Header = () => {
   return (
     <header className="p-2 lg:p-4">
       <div className="navbar bg-base-100">
@@ -68,3 +68,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;
