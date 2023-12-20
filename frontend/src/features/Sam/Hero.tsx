@@ -3,11 +3,27 @@ import heroimg from '../../assets/banner.jpg'
 import "./Hero.css"
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RiArrowDropUpLine } from "react-icons/ri";
+import { RxCross1 } from "react-icons/rx";
 /* 
 				<div className="absolute bg-[#333333] inset-0 flex justify-center items-center">
 */
 type Places = "Parnell" | "NewMarket"
 type Filter = 'Gyms' | 'Parks' | 'Supermarkets' | 'Cinemas' | 'Swimming Pools' | "Pet Friendly" | "Has Elevators" | "Furnished"
+
+type FilterVar = "city" | "petFriendly" | "hasElevators" | "furnished" | "gym" | "park" | "supermarket" | "cinema" | "swimmingPool"
+
+const varToDisplayString = {
+	city: "City",
+	petFriendly: "Pet Friendly",
+	hasElevators: "Has Elevator",
+	furnished: "Furnished",
+	gym: "Gyms",
+	park: "Parks",
+	supermarket: "Supermarkets",
+	cinema: "Cinemas",
+	swimmingPool: "Swimming Pools",
+}
+
 // city, petFriendly, hasElevators, furnished, gym, park, supermarket, cinema, swimmingPool
 /* 'gym', 'park', 'supermarket', 'cinema', 'swimmingPool' */
 const Hero = () => {
@@ -17,12 +33,12 @@ const Hero = () => {
 	const placesButtonRef = useRef<HTMLDivElement>()
 
 	// Filters
-	const [filters, setFilters] = useState<Filter[]>([])
+	const [filters, setFilters] = useState<FilterVar[]>([])
 	const [filtersIsOpen, setFiltersIsOpen] = useState<boolean>(false)
 	const filtersButtonRef = useRef<HTMLDivElement>()
 
 	// Methods
-	const addFilter = (newFilter: Filter) => {
+	const addFilter = (newFilter: FilterVar) => {
 		setFilters(filters => {
 			const newFilters = filters.includes(newFilter) ? filters : [newFilter, ...filters]
 			console.log("newFilters\t", newFilters)
@@ -78,21 +94,21 @@ const Hero = () => {
 									<div>{filtersIsOpen ? <RiArrowDropUpLine size={25} /> : <RiArrowDropDownLine size={25} />}</div>
 								</div>
 								<ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-									<li><a onClick={() => addFilter("Gyms")}>Gyms</a></li>
-									<li><a onClick={() => addFilter("Parks")}>Parks</a></li>
-									<li><a onClick={() => addFilter("Supermarkets")}>Supermarkets</a></li>
-									<li><a onClick={() => addFilter("Cinemas")}>Cinemas</a></li>
-									<li><a onClick={() => addFilter("Swimming Pools")}>Swimming Pools</a></li>
-									<li><a onClick={() => addFilter("Pet Friendly")}>Pet Friendly</a></li>
-									<li><a onClick={() => addFilter("Has Elevators")}>Has Elevators</a></li>
-									<li><a onClick={() => addFilter("Furnished")}>Furnished</a></li>
+									<li><a onClick={() => addFilter("gym")}>Gyms</a></li>
+									<li><a onClick={() => addFilter("park")}>Parks</a></li>
+									<li><a onClick={() => addFilter("supermarket")}>Supermarkets</a></li>
+									<li><a onClick={() => addFilter("cinema")}>Cinemas</a></li>
+									<li><a onClick={() => addFilter("swimmingPool")}>Swimming Pools</a></li>
+									<li><a onClick={() => addFilter("petFriendly")}>Pet Friendly</a></li>
+									<li><a onClick={() => addFilter("hasElevators")}>Has Elevators</a></li>
+									<li><a onClick={() => addFilter("furnished")}>Furnished</a></li>
 								</ul>
 							</div>
 						</div>
 						<div className='flex flex-wrap'> {/*  bg-[#500] */}
 							{
 								filters.map(filter => (
-									<span className="badge m-1" key={filter}>{filter}</span>
+									<span className="badge m-1" key={filter}>{varToDisplayString[filter]} <span className='relative top-0.5 pl-1'><RxCross1 size={8} /></span></span>
 								))
 							}
 						</div>
