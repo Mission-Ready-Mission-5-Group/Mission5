@@ -55,6 +55,19 @@ const Hero = () => {
 
 	}
 
+	const getProperties = () => {
+		const sendRequest = async () => {
+			try {
+				console.log("Getting properties")
+				const res = await fetch("/api/listings/search?city=auckland")
+				const json = await res.json()
+				console.log("json\t", json)
+			} catch (err) {
+				throw new Error(`${err}`)
+			}
+		}
+		sendRequest()
+	}
 
 	// Hooks
 	useEffect(() => {
@@ -117,7 +130,7 @@ const Hero = () => {
 								</ul>
 							</div>
 
-							<button className="btn btn-active btn-primary">Search</button>
+							<button className="btn btn-active btn-primary" onClick={() => getProperties()}>Search</button>
 						</div>
 
 
