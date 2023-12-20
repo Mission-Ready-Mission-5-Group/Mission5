@@ -1,5 +1,6 @@
 import React from 'react'
 import heroimg from '../../assets/banner.jpg'
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -21,7 +22,7 @@ const Hero = () => {
             {/* Buttons with space in between */}
             <div className="flex space-x-4">
               <button className="flex-1 bg-white hover:bg-yellow-500 hover:text-black px-4 py-2 rounded-md text-black">Manage your Properties</button>
-              <button className="flex-1 bg-white hover:bg-blue-500 hover:text-black px-4 py-2 rounded-md text-black">Rent Properties</button>
+              <Link to="/listings"><button className="flex-1 bg-white hover:bg-blue-500 hover:text-black px-4 py-2 rounded-md text-black">Rent Properties</button></Link>
             </div>
 
             {/* Search bar */}

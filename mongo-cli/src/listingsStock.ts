@@ -1,7 +1,7 @@
 export const listingsArray = [
 	{
 		streetAddress: '123 Main Street',
-		suburb: 'Example Suburb',
+		suburb: 'Parnell',
 		city: 'Auckland',
 		bedrooms: 1,
 		bathrooms: 2,
@@ -21,7 +21,7 @@ export const listingsArray = [
 	},
 	{
 		streetAddress: '456 Oak Avenue',
-		suburb: 'New Suburb',
+		suburb: 'Newmarket',
 		city: 'Auckland',
 		bedrooms: 4,
 		bathrooms: 4,
@@ -41,7 +41,7 @@ export const listingsArray = [
 	},
 	{
 		streetAddress: '789 Pine Street',
-		suburb: 'Wellington Central',
+		suburb: 'Brooklyn',
 		city: 'Wellington',
 		bedrooms: 1,
 		bathrooms: 1,
