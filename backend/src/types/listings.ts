@@ -1,6 +1,7 @@
-export type SearchQuery = {
-	city?: any;
-	petFriendly?:boolean;
-	hasElevators?:boolean;
-	furnished?:boolean;
-}
+// export type DbSearchQuery = {
+// 	city?: any;
+// 	suburb?: any;
+// 	petFriendly?:boolean;
+// 	hasElevators?:boolean;
+// 	furnished?:boolean;
+// }
