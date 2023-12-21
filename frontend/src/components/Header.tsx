@@ -38,10 +38,12 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">
+          <a href="/" className="btn btn-ghost text-xl">
+            
             <img
               src="https://metronz.co.nz/wp-content/uploads/2023/09/logo-600x6000-1.svg"
               width={180}
+              alt="Logo"
             />
           </a>
         </div>
