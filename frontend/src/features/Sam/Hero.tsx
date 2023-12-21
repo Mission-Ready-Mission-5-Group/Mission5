@@ -8,6 +8,7 @@ import { BsSuitHeart } from 'react-icons/bs';
 import { IoBedOutline, IoLocationOutline } from 'react-icons/io5';
 import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 import { FaCarSide } from "react-icons/fa6";
+import { Listing } from '../types/Listing';
 /* 
 				<div className="absolute bg-[#333333] inset-0 flex justify-center items-center">
 */
@@ -41,6 +42,9 @@ const Hero = () => {
 	const [filters, setFilters] = useState<QueryStringNames[]>([])
 	const [filtersIsOpen, setFiltersIsOpen] = useState<boolean>(false)
 	const filtersButtonRef = useRef<HTMLDivElement>()
+
+	// Listings
+	const [listings, setListings] = useState<Listing[]>([])
 
 	// ############################ Methods ###############################
 	// 
@@ -84,6 +88,8 @@ const Hero = () => {
 				const res = await fetch(reqUrl)
 				const json = await res.json()
 				console.log("json\t", json)
+
+				setListings(json)
 			} catch (err) {
 				throw new Error(`${err}`)
 			}
@@ -183,6 +189,10 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 				<h1 className='text-5xl bg-violet-700 text-center'>Rentals in {location}</h1>
 				<p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde harum cum voluptates velit nihil pariatur magnam hic impedit et, neque laborum aspernatur reiciendis aliquam ipsam repellat omnis. Illum, laborum obcaecati.</p>
 
+
+ 				{listings.map(listing=>{
+					return <h1>testing!</h1>
+				})}
 
 				{/* Card Container */}
 				<div className="flex flex-wrap">

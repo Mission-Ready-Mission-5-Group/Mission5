@@ -21,4 +21,4 @@ export interface Listing {
   longitude: number;
 }
 
-// export interface PropertyDocument extends Property, Document {}
+export interface ListingDocument extends Listing, Document {}
