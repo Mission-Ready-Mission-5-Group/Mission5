@@ -207,8 +207,8 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 										<img src={listing.propertyImages[0]} alt="Shoes" />
 										<div className='absolute top-4 right-4'><BsSuitHeart /></div>
 									</figure>
-									<div className="card-body p-4 pt-6 pb-6">
-										<div className='flex items-center place-content-between '>
+									<div className="card-body p-4 pb-6">
+										<div className='flex items-baseline place-content-between pb-4'>
 											<div className='flex items-center'>
 												<div className='flex items-center pr-3'>
 													<div className='pr-1'><IoBedOutline /></div>{listing.bedrooms}
@@ -221,7 +221,10 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 												</div>
 											</div>
 
-											<h2 className="card-title text-4xl">${listing.price}</h2>
+											<div className='relative'>
+												<h2 className="card-title text-4xl">${listing.price}.00</h2>
+												<span className='text-sm absolute top-8 right-0'>per week</span>
+											</div>
 										</div>
 
 										<p>{listing.description}</p>
