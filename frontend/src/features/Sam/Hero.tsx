@@ -200,7 +200,7 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 				<div className="flex flex-wrap">
 					{listings.map(listing => {
 
-						const truncateDescription = (description:string, maxWords:number) => {
+						const truncateDescription = (description: string, maxWords: number) => {
 							const words = description.split(' ');
 							if (words.length > maxWords) {
 								return words.slice(0, maxWords).join(' ') + '...';
@@ -209,9 +209,9 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 						};
 
 						return (
-							<Link to={listing._id} key={listing._id}>
+							<div className="card w-[24rem] bg-base-100 rounded-none m-4" key={listing._id}>
 								{/* Card */}
-								<div className="card w-[24rem] bg-base-100 rounded-none m-4">
+								<Link to={listing._id}>
 									<figure className='relative'>
 										<img src={listing.propertyImages[0]} alt="Shoes" />
 										<div className='absolute top-4 right-4'><BsSuitHeart /></div>
@@ -236,10 +236,10 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 											</div>
 										</div>
 
-										<p>{truncateDescription(listing.description,20)}</p>
+										<p>{truncateDescription(listing.description, 20)}</p>
 									</div>
-								</div>
-							</Link>
+								</Link>
+							</div>
 
 
 						)
