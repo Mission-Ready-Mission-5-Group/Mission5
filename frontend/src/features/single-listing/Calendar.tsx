@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
 
-export const Calendar = () => {
+type Props = {
+  availableFrom: Date;
+};
+export const Calendar = ({ availableFrom }: Props) => {
   const [value, setValue] = useState({
-    startDate: null,
-    endDate: null,
+    startDate: availableFrom,
+    endDate: availableFrom,
   });
 
   const handleValueChange = (newValue: any) => {

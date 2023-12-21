@@ -1,5 +1,8 @@
 import { IoIosCalculator } from "react-icons/io";
-export const MoveInCalc = () => {
+type Props = {
+  rent: number;
+};
+export const MoveInCalc = ({ rent }: Props) => {
   return (
     <div>
       <div className="font-bold text-2xl flex gap-2 items-center ml-2">
@@ -14,17 +17,17 @@ export const MoveInCalc = () => {
                 {/* row 1 */}
                 <tr>
                   <td>Rent in advance</td>
-                  <td>$2000</td>
+                  <td>${rent}</td>
                 </tr>
                 {/* row 2 */}
                 <tr>
                   <td>Bond</td>
-                  <td>$1500</td>
+                  <td>${rent * 4}</td>
                 </tr>
                 {/* row 3 */}
                 <tr>
                   <td>Total Cost</td>
-                  <td>$3500</td>
+                  <td>${rent + rent * 4}</td>
                 </tr>
               </tbody>
             </table>

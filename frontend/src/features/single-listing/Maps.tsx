@@ -1,25 +1,17 @@
 import GoogleMapReact from "google-map-react";
 import { IoMdPin } from "react-icons/io";
 
-// const AnyReactComponent = ({
-//   text,
-// }: {
-//   lat: number;
-//   lng: number;
-//   text: string;
-// }) => (
-//   <div>
-//     <IoMdPin size={60} color="red" />
-//   </div>
-// );
-
-export default function Maps() {
+type Props = {
+  lat: number;
+  lng: number;
+};
+export default function Maps({ lat, lng }: Props) {
   const defaultProps = {
     center: {
-      lat: -36.848461,
-      lng: 174.763336,
+      lat: lat,
+      lng: lng,
     },
-    zoom: 18,
+    zoom: 19,
   };
 
   return (
