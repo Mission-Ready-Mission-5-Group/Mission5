@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 /* 
 				<div className="absolute bg-[#333333] inset-0 flex justify-center items-center">
 */
-type Location = "Parnell" | "NewMarket" | "Auckland" | "Wellington"
+type Location = "Parnell" | "NewMarket" | "Auckland" | "Wellington" | "West Harbour" | "Wellington Central"
 type Filter = 'Gyms' | 'Parks' | 'Supermarkets' | 'Cinemas' | 'Swimming Pools' | "Pet Friendly" | "Has Elevators" | "Furnished"
 
 type QueryStringNames = "location" | "petFriendly" | "hasElevators" | "furnished" | "gym" | "park" | "supermarket" | "cinema" | "swimmingPool"
@@ -140,10 +140,12 @@ const Hero = () => {
 									<div>{locationsIsOpened ? <RiArrowDropUpLine size={25} /> : <RiArrowDropDownLine size={25} />}</div>
 								</div>
 								<ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+									<li><a onClick={() => setLocationHandler("Auckland")}><b>Auckland</b></a></li>
 									<li><a onClick={() => setLocationHandler("Parnell")}>Parnell</a></li>
 									<li><a onClick={() => setLocationHandler("NewMarket")}>NewMarket</a></li>
-									<li><a onClick={() => setLocationHandler("Auckland")}>Auckland</a></li>
-									<li><a onClick={() => setLocationHandler("Wellington")}>Wellington</a></li>
+									<li><a onClick={() => setLocationHandler("West Harbour")}>West Harbour</a></li>
+									<li><a onClick={() => setLocationHandler("Wellington")}><b>Wellington</b></a></li>
+									<li><a onClick={() => setLocationHandler("Wellington Central")}>Wellington Central</a></li>
 								</ul>
 							</div>
 
