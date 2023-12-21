@@ -1,14 +1,14 @@
 import express from "express";
 import { getListings } from "../listingsGetter";
-import { Request, Response } from "express"
+import { Request, Response } from "express";
 import { listing } from "../models/listings";
 // import { DbSearchQuery } from "../types/listings";
 
-const router = express.Router()
+const router = express.Router();
 
 router.get("/", async (req: Request, res: Response) => {
-	const listings = await getListings();
-	res.send(listings);
+  const listings = await getListings();
+  res.send(listings);
 });
 
 
@@ -60,14 +60,11 @@ router.get("/search/", async (req, res) => {
 	}
 })
 
-
-
-
 // Route Example: /api/listings/<mongoose_id>
 // Route Example: /api/listings/609c646d3b5e3f0e2c216db1
-router.get("/:id", (req, res) => {
-	res.json({ message: "testing" })
-})
+router.get("/:id", async (req, res) => {
+  const listings = await listing.findById(req.params.id);
+  res.json(listings);
+});
 
-
-export const routerListings = express.Router().use("/listings", router)
+export const routerListings = express.Router().use("/listings", router);

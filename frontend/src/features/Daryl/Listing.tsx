@@ -44,51 +44,53 @@ const Listing: React.FC = () => {
     { image: house4, bed: '3', bath: '2', garage: '1', price: '$656', location: 'Hampton Downs, Waikato' },
   ];
 
+  // Separate listings into two groups
   const group1Listings = listings.slice(0, 4); // First 4 listings
   const group2Listings = listings.slice(4);   // Remaining listings
 
+
   return (
-    <div className='py-10 mx-auto text-black'>
-    <h1 className='text-2xl font-bold'>Featured Rentals under $700 in Auckland</h1>
-    <div className="deals grid 2xl:grid-cols-5 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-10">
-      {group1Listings.map((listing, index) => (
-        <div
-          key={index}
-          className={`deal h-[350px] bg-white drop-shadow-2xl rounded-xl transform transition-transform hover:scale-105 ${popUpVisible ? 'pointer-events-none' : ''}`}
-          onClick={() => handleListingClick(listing)}
-        >
+    <div className='py-10 mx-auto'>
+      <h1 className='text-2xl font-bold'>Featured Rentals under $700 in Auckland</h1>
+      <div className="deals grid 2xl:grid-cols-5 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-10">
+        {group1Listings.map((listing, index) => (
+          <div
+            key={index}
+            className={`deal h-[350px] bg-white drop-shadow-2xl rounded-xl transform transition-transform hover:scale-105 ${popUpVisible ? 'pointer-events-none' : ''}`}
+            onClick={() => handleListingClick(listing)}
+          >
             <div className='relative h-[60%]'>
               <img src={listing.image} alt="" className='w-full h-full object-cover rounded-t-xl' />
               <div className='absolute top-0 right-0 p-4'>
-                <BsSuitHeart size={"1.5rem"} className="text-black" />
+                <BsSuitHeart size={"1.5rem"} className="text-white" />
               </div>
             </div>
             <div className='p-4 space-y-4'>
               <div className='flex space-x-5 items-center'>
                 <div className='flex items-center space-x-1'>
                   <IoBedOutline />
-                  <p className='text-sm text-black'>{listing.bed} bed</p>
+                  <p className='text-sm text-gray-400'>{listing.bed} bed</p>
                 </div>
                 <div className='flex items-center space-x-1'>
                   <GiBathtub />
-                  <p className='text-sm text-black'>{listing.bath} bath</p>
+                  <p className='text-sm text-gray-400'>{listing.bath} bath</p>
                 </div>
                 <div className='flex items-center space-x-1'>
                   <GiHomeGarage />
-                  <p className='text-sm text-black'>{listing.garage} gar</p>
+                  <p className='text-sm text-gray-400'>{listing.garage} gar</p>
                 </div>
               </div>
               <h1 className='text-2xl font-semibold'>{listing.price}</h1>
               <div className='flex items-center space-x-2'>
                 <IoLocationOutline />
-                <p className='text-sm text-black'>{listing.location}</p>
+                <p className='text-sm text-gray-600'>{listing.location}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <h1 className='text-2xl font-bold text-black'>Featured Rentals</h1>
+      <h1 className='text-2xl font-bold'>Featured Rentals</h1>
       <div className="deals grid 2xl:grid-cols-5 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-10">
         {group2Listings.map((listing, index) => (
           <div
@@ -99,22 +101,22 @@ const Listing: React.FC = () => {
             <div className='relative h-[60%]'>
               <img src={listing.image} alt="" className='w-full h-full object-cover rounded-t-xl' />
               <div className='absolute top-0 right-0 p-4'>
-                <BsSuitHeart size={"1.5rem"} className="text-black" />
+                <BsSuitHeart size={"1.5rem"} className="text-white" />
               </div>
             </div>
             <div className='p-4 space-y-4'>
               <div className='flex space-x-5 items-center'>
                 <div className='flex items-center space-x-1'>
                   <IoBedOutline />
-                  <p className='text-sm text-black'>{listing.bed} bed</p>
+                  <p className='text-sm text-gray-400'>{listing.bed} bed</p>
                 </div>
                 <div className='flex items-center space-x-1'>
                   <GiBathtub />
-                  <p className='text-sm text-black'>{listing.bath} bath</p>
+                  <p className='text-sm text-gray-400'>{listing.bath} bath</p>
                 </div>
                 <div className='flex items-center space-x-1'>
                   <GiHomeGarage />
-                  <p className='text-sm text-black'>{listing.garage} gar</p>
+                  <p className='text-sm text-gray-400'>{listing.garage} gar</p>
                 </div>
               </div>
               <h1 className='text-2xl font-semibold'>{listing.price}</h1>
