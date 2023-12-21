@@ -199,6 +199,15 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 				{/* Card Container */}
 				<div className="flex flex-wrap">
 					{listings.map(listing => {
+
+						const truncateDescription = (description:string, maxWords:number) => {
+							const words = description.split(' ');
+							if (words.length > maxWords) {
+								return words.slice(0, maxWords).join(' ') + '...';
+							}
+							return description;
+						};
+
 						return (
 							<Link to={listing._id} key={listing._id}>
 								{/* Card */}
@@ -227,7 +236,7 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 											</div>
 										</div>
 
-										<p>{listing.description}</p>
+										<p>{truncateDescription(listing.description,20)}</p>
 									</div>
 								</div>
 							</Link>
