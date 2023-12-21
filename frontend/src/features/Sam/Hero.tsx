@@ -192,7 +192,7 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 							<img src="/src/assets/houses/house2.jpg" alt="Shoes" />
 							<div className='absolute top-4 right-4'><BsSuitHeart /></div>
 						</figure>
-						<div className="card-body p-4">
+						<div className="card-body p-4 pt-6 pb-6">
 							<div className='flex items-center place-content-between '>
 								<div className='flex items-center'>
 									<div className='flex items-center pr-2'>
