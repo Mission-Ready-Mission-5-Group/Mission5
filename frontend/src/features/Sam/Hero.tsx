@@ -9,6 +9,7 @@ import { IoBedOutline, IoLocationOutline } from 'react-icons/io5';
 import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 import { FaCarSide } from "react-icons/fa6";
 import { ListingDocument } from '../types/Listing';
+import { Link } from 'react-router-dom';
 /* 
 				<div className="absolute bg-[#333333] inset-0 flex justify-center items-center">
 */
@@ -196,40 +197,42 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 								<img key={listing._id} src={listing.propertyImages[0]} alt="Shoes" />
 							</div> */}
 				{/* Card Container */}
-				{listings.map(listing => {
-					return (
-						<div className="flex flex-wrap" key={listing._id}>
-							{/* Card */}
-							<div className="card w-[24rem] bg-base-100 rounded-none m-4">
-								<figure className='relative'>
-									<img src={listing.propertyImages[0]} alt="Shoes" />
-									<div className='absolute top-4 right-4'><BsSuitHeart /></div>
-								</figure>
-								<div className="card-body p-4 pt-6 pb-6">
-									<div className='flex items-center place-content-between '>
-										<div className='flex items-center'>
-											<div className='flex items-center pr-3'>
-												<div className='pr-1'><IoBedOutline /></div>{listing.bedrooms}
+				<div className="flex flex-wrap">
+					{listings.map(listing => {
+						return (
+							<Link to={listing._id} key={listing._id}>
+								{/* Card */}
+								<div className="card w-[24rem] bg-base-100 rounded-none m-4">
+									<figure className='relative'>
+										<img src={listing.propertyImages[0]} alt="Shoes" />
+										<div className='absolute top-4 right-4'><BsSuitHeart /></div>
+									</figure>
+									<div className="card-body p-4 pt-6 pb-6">
+										<div className='flex items-center place-content-between '>
+											<div className='flex items-center'>
+												<div className='flex items-center pr-3'>
+													<div className='pr-1'><IoBedOutline /></div>{listing.bedrooms}
+												</div>
+												<div className='flex items-center pr-3'>
+													<div className='pr-1'><GiBathtub /></div>{listing.bathrooms}
+												</div>
+												<div className='flex items-center pr-3'>
+													<div className='pr-1'><FaCarSide /></div>{listing.garages}
+												</div>
 											</div>
-											<div className='flex items-center pr-3'>
-												<div className='pr-1'><GiBathtub /></div>{listing.bathrooms}
-											</div>
-											<div className='flex items-center pr-3'>
-												<div className='pr-1'><FaCarSide /></div>{listing.garages}
-											</div>
+
+											<h2 className="card-title text-4xl">${listing.price}</h2>
 										</div>
 
-										<h2 className="card-title text-4xl">${listing.price}</h2>
+										<p>{listing.description}</p>
 									</div>
-
-									<p>{listing.description}</p>
 								</div>
-							</div>
-						</div>
+							</Link>
 
 
-					)
-				})}
+						)
+					})}
+				</div>
 
 
 
