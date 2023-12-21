@@ -189,9 +189,9 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
  */}
 
 			{/* Listings View */}
-			<div className='w-full p-12'>
-				<h1 className='text-5xl bg-violet-700 text-center'>Rentals in {location}</h1>
-				<p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde harum cum voluptates velit nihil pariatur magnam hic impedit et, neque laborum aspernatur reiciendis aliquam ipsam repellat omnis. Illum, laborum obcaecati.</p>
+			<div className='w-full p-12 pt-12'>
+				<h1 className='text-5xl text-center mb-2'>Rentals in {location}</h1>{/*  bg-violet-700  */}
+				<p className="text-center mb-8">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde harum cum voluptates velit nihil pariatur magnam hic impedit et, neque laborum aspernatur reiciendis aliquam ipsam repellat omnis. Illum, laborum obcaecati.</p>
 
 
 				{/* <div key={"as"+listing._id}>
