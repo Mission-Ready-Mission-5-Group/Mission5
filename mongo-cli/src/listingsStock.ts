@@ -7,7 +7,7 @@ export const listingsArray = [
 		bathrooms: 2,
 		garages: 3,
 		hasNegotiablePrice: true,
-		price: 500000, // Example price in NZD
+		price: 600, // PRICE PER WEEK
 		description: 'A beautiful property for sale in Auckland!',
 		estateAgent: '609c646d3b5e3f0e2c216db1', // Example ObjectId for estate agent
 		propertyImages: ['/src/assets/houses/house1.jpg', '/src/assets/houses/house1.jpg', '/src/assets/houses/house1.jpg'],
@@ -27,7 +27,7 @@ export const listingsArray = [
 		bathrooms: 4,
 		garages: 4,
 		hasNegotiablePrice: false,
-		price: 750000, // Example price in NZD
+		price: 700, // PRICE PER WEEK
 		description: 'A spacious family home with a beautiful garden!',
 		estateAgent: '609c646d3b5e3f0e2c216db2', // Example ObjectId for another estate agent
 		propertyImages: ['/src/assets/houses/house2.jpg', '/src/assets/houses/house2.jpg', '/src/assets/houses/house2.jpg'],
@@ -47,7 +47,7 @@ export const listingsArray = [
 		bathrooms: 1,
 		garages: 1,
 		hasNegotiablePrice: true,
-		price: 600000, // Example price in NZD
+		price: 800, // PRICE PER WEEK
 		description: 'A cozy apartment with a view of Wellington Harbor!',
 		estateAgent: '609c646d3b5e3f0e2c216db3', // Example ObjectId for a Wellington estate agent
 		propertyImages: ['/src/assets/houses/house3.jpg', '/src/assets/houses/house3.jpg', '/src/assets/houses/house3.jpg'],
