@@ -216,7 +216,7 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 								<Link to={listing._id}>
 									<figure className='relative'>
 										<img src={listing.propertyImages[0]} alt="Shoes" />
-										<div className='absolute top-4 right-4'><BsSuitHeart /></div>
+										{/* <div className='absolute top-4 right-4'><BsSuitHeart /></div> */}
 									</figure>
 									<div className="card-body p-4 pb-6">
 										<div className='flex items-baseline place-content-between pb-4'>
