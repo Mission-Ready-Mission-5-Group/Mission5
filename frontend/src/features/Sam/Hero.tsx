@@ -47,6 +47,9 @@ const Hero = () => {
 	// Listings
 	const [listings, setListings] = useState<ListingDocument[]>([])
 
+	// Search
+	const [search, setSearch] = useState<string>("")
+
 	// ############################ Methods ###############################
 	// 
 	const setLocationHandler = (location: Location) => {
@@ -132,6 +135,10 @@ const Hero = () => {
 						{/* FIRST ROW */}
 						{/* <input type="text" placeholder="Quick Search" className="input w-[100%] max-w-xs  bg-opacity-10 text-white border-solid border-01 border-gray-500" /> */}
 						<input className='p-2 rounded bg-transparent border border-gray-400 text-white' placeholder='Quick Search...'/>
+						
+						
+						
+						
 						{/* SECOND ROW */}
 						<div className='flex search-layer items-center justify-center'>
 
