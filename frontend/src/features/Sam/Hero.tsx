@@ -4,6 +4,10 @@ import "./Hero.css"
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RiArrowDropUpLine } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
+import { BsSuitHeart } from 'react-icons/bs';
+import { IoBedOutline, IoLocationOutline } from 'react-icons/io5';
+import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
+import { FaCarSide } from "react-icons/fa6";
 /* 
 				<div className="absolute bg-[#333333] inset-0 flex justify-center items-center">
 */
@@ -40,8 +44,8 @@ const Hero = () => {
 
 	// ############################ Methods ###############################
 	// 
-	const setLocationHandler = (location:Location) => {
-		console.log("Location\t",location)
+	const setLocationHandler = (location: Location) => {
+		console.log("Location\t", location)
 		setLocation(location)
 	}
 
@@ -70,12 +74,12 @@ const Hero = () => {
 			try {
 
 				// Create query string
-				const queryString = filters.map(filter=>`${filter}=1`).join().replace(/\,/g,"&")
-				console.log("queryString\t",queryString)
+				const queryString = filters.map(filter => `${filter}=1`).join().replace(/\,/g, "&")
+				console.log("queryString\t", queryString)
 
 				// Create url
 				const reqUrl = `/api/listings/search?location=${location}&${queryString}`
-				console.log("Sent request\t",reqUrl)
+				console.log("Sent request\t", reqUrl)
 
 				const res = await fetch(reqUrl)
 				const json = await res.json()
@@ -102,7 +106,7 @@ const Hero = () => {
 	}, [])
 
 
-	
+
 	return (
 		<>
 			{/* Listings Search Area */}
@@ -168,15 +172,48 @@ const Hero = () => {
 					</div>
 				</div>
 			</div>
-
+{/* 
+			import { BsSuitHeart } from 'react-icons/bs';
+import { IoBedOutline, IoLocationOutline } from 'react-icons/io5';
+import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
+ */}
 
 			{/* Listings View */}
-			<div className='bg-lime-600 w-full'>
-				hello
-				asdasd
-				asd<br/>asd
-				<div>
+			<div className='bg-lime-600 w-full p-12'>
+				<h1 className='text-5xl bg-violet-700 text-center'>Rentals in {location}</h1>
+				<p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde harum cum voluptates velit nihil pariatur magnam hic impedit et, neque laborum aspernatur reiciendis aliquam ipsam repellat omnis. Illum, laborum obcaecati.</p>
 
+ 				
+				<IoBedOutline/>
+				<GiBathtub/>
+				{/* Card Container */}
+				<div className="flex flex-wrap">
+					{/* Card */}
+					<div className="card w-[30rem] bg-base-100 rounded-none m-4">
+						<figure className='relative'>
+							<img src="/src/assets/houses/house2.jpg" alt="Shoes" />
+							<div className='absolute top-4 right-4'><BsSuitHeart/></div>
+						</figure>
+						<div className="card-body p-4">
+							<div className='flex items-center place-content-between '>
+								<div className='flex items-center'>
+									<div className='flex items-center pr-2'>
+										<div className='pr-0.25'><IoBedOutline/></div>1
+									</div>
+									<div className='flex items-center pr-2'>
+										<div className='pr-0.25'><GiBathtub/></div>1
+									</div>
+									<div className='flex items-center pr-2'>
+										<div className='pr-0.25'><FaCarSide/></div>1
+									</div>
+								</div>
+							
+							<h2 className="card-title text-4xl">$700</h2>
+							</div>
+							
+							<p>This modern property..</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>
