@@ -207,21 +207,21 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 								<div className="card-body p-4 pt-6 pb-6">
 									<div className='flex items-center place-content-between '>
 										<div className='flex items-center'>
-											<div className='flex items-center pr-2'>
-												<div className='pr-0.25'><IoBedOutline /></div>1
+											<div className='flex items-center pr-3'>
+												<div className='pr-1'><IoBedOutline /></div>{listing.bedrooms}
 											</div>
-											<div className='flex items-center pr-2'>
-												<div className='pr-0.25'><GiBathtub /></div>1
+											<div className='flex items-center pr-3'>
+												<div className='pr-1'><GiBathtub /></div>{listing.bathrooms}
 											</div>
-											<div className='flex items-center pr-2'>
-												<div className='pr-0.25'><FaCarSide /></div>1
+											<div className='flex items-center pr-3'>
+												<div className='pr-1'><FaCarSide /></div>{listing.garages}
 											</div>
 										</div>
 
 										<h2 className="card-title text-4xl">${listing.price}</h2>
 									</div>
 
-									<p>This modern property..</p>
+									<p>{listing.description}</p>
 								</div>
 							</div>
 						</div>
