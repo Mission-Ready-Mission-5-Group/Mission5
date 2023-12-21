@@ -126,10 +126,12 @@ const Hero = () => {
 				/>
 
 				<div className="absolute bg-black bg-opacity-10 inset-0 flex justify-center items-center note-covers-image-to-allow-centering-of-insides">
-					<div className="text-center bg-[#000] bg-opacity-40 flex p-6 rounded-2xl flex-col note-this-is-the-container-for-all-the-search-related-elements">{/* w-3/5  */}
+					<div className="text-center bg-[#000] bg-opacity-40 flex p-6 rounded-2xl flex-col note-this-is-the-container-for-all-the-search-related-elements w-100">{/* w-3/5  */}
 
 
-
+						{/* FIRST ROW */}
+						{/* <input type="text" placeholder="Quick Search" className="input w-[100%] max-w-xs  bg-opacity-10 text-white border-solid border-01 border-gray-500" /> */}
+						<input className='p-2 rounded bg-transparent border border-gray-400 text-white' placeholder='Quick Search...'/>
 						{/* SECOND ROW */}
 						<div className='flex search-layer items-center justify-center'>
 
