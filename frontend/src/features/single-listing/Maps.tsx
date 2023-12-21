@@ -16,7 +16,7 @@ export default function Maps({ lat, lng }: Props) {
 
   return (
     <div className="lg:grid lg:grid-cols-8 lg:gap-2">
-      <div style={{ height: "100vh", width: "100%" }} className="lg:col-span-6">
+      <div style={{ height: "56vh", width: "100%" }} className="lg:col-span-6">
         <GoogleMapReact
           bootstrapURLKeys={{
             key: import.meta.env.VITE_GOOGLE_API_KEY as string,
