@@ -184,8 +184,6 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 				<p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde harum cum voluptates velit nihil pariatur magnam hic impedit et, neque laborum aspernatur reiciendis aliquam ipsam repellat omnis. Illum, laborum obcaecati.</p>
 
  				
-				<IoBedOutline/>
-				<GiBathtub/>
 				{/* Card Container */}
 				<div className="flex flex-wrap">
 					{/* Card */}
