@@ -10,7 +10,7 @@ export const listingsArray = [
 		price: 500000, // Example price in NZD
 		description: 'A beautiful property for sale in Auckland!',
 		estateAgent: '609c646d3b5e3f0e2c216db1', // Example ObjectId for estate agent
-		propertyImages: ['/api/media/image1.jpg', '/api/media/image2.jpg', '/api/media/image3.jpg'],
+		propertyImages: ['/src/assets/houses/house1.jpg', '/src/assets/houses/house1.jpg', '/src/assets/houses/house1.jpg'],
 		tenancyType: "fixed",
 		availableFrom: new Date('2023-12-31'), // Example 
 		hasElevators: true,
@@ -30,7 +30,7 @@ export const listingsArray = [
 		price: 750000, // Example price in NZD
 		description: 'A spacious family home with a beautiful garden!',
 		estateAgent: '609c646d3b5e3f0e2c216db2', // Example ObjectId for another estate agent
-		propertyImages: ['/api/media/image4.jpg', '/api/media/image5.jpg', '/api/media/image6.jpg'],
+		propertyImages: ['/src/assets/houses/house2.jpg', '/src/assets/houses/house2.jpg', '/src/assets/houses/house2.jpg'],
 		tenancyType: "fixed",
 		availableFrom: new Date('2023-11-15'), // Example availability date
 		hasElevators: false,
@@ -50,7 +50,7 @@ export const listingsArray = [
 		price: 600000, // Example price in NZD
 		description: 'A cozy apartment with a view of Wellington Harbor!',
 		estateAgent: '609c646d3b5e3f0e2c216db3', // Example ObjectId for a Wellington estate agent
-		propertyImages: ['/api/media/image7.jpg', '/api/media/image8.jpg', '/api/media/image9.jpg'],
+		propertyImages: ['/src/assets/houses/house3.jpg', '/src/assets/houses/house3.jpg', '/src/assets/houses/house3.jpg'],
 		tenancyType: "fixed",
 		availableFrom: new Date('2023-10-01'), // Example availability date
 		hasElevators: false,
