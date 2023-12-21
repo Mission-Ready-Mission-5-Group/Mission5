@@ -187,7 +187,7 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
  */}
 
 			{/* Listings View */}
-			<div className='bg-lime-600 w-full p-12'>
+			<div className='w-full p-12'>
 				<h1 className='text-5xl bg-violet-700 text-center'>Rentals in {location}</h1>
 				<p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde harum cum voluptates velit nihil pariatur magnam hic impedit et, neque laborum aspernatur reiciendis aliquam ipsam repellat omnis. Illum, laborum obcaecati.</p>
 
@@ -209,7 +209,7 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 						};
 
 						return (
-							<div className="card w-[24rem] bg-base-100 rounded-none m-4" key={listing._id}>
+							<div className="card w-[24rem] bg-base-100 rounded-none m-4 border-solid border-2 border-gray-300 " key={listing._id}>
 								{/* Card */}
 								<Link to={listing._id}>
 									<figure className='relative'>
