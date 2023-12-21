@@ -12,7 +12,7 @@ import { ListingDocument } from '../types/Listing';
 /* 
 				<div className="absolute bg-[#333333] inset-0 flex justify-center items-center">
 */
-type Location = "Parnell" | "NewMarket" | "Auckland"
+type Location = "Parnell" | "NewMarket" | "Auckland" | "Wellington"
 type Filter = 'Gyms' | 'Parks' | 'Supermarkets' | 'Cinemas' | 'Swimming Pools' | "Pet Friendly" | "Has Elevators" | "Furnished"
 
 type QueryStringNames = "location" | "petFriendly" | "hasElevators" | "furnished" | "gym" | "park" | "supermarket" | "cinema" | "swimmingPool"
@@ -142,6 +142,7 @@ const Hero = () => {
 									<li><a onClick={() => setLocationHandler("Parnell")}>Parnell</a></li>
 									<li><a onClick={() => setLocationHandler("NewMarket")}>NewMarket</a></li>
 									<li><a onClick={() => setLocationHandler("Auckland")}>Auckland</a></li>
+									<li><a onClick={() => setLocationHandler("Wellington")}>Wellington</a></li>
 								</ul>
 							</div>
 
