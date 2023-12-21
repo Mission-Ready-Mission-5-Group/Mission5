@@ -212,32 +212,6 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 							<p>This modern property..</p>
 						</div>
 					</div>
-					{/* Card */}
-					<div className="card w-[24rem] bg-base-100 rounded-none m-4">
-						<figure className='relative'>
-							<img src="/src/assets/houses/house4.jpg" alt="Shoes" />
-							<div className='absolute top-4 right-4'><BsSuitHeart /></div>
-						</figure>
-						<div className="card-body p-4">
-							<div className='flex items-center place-content-between '>
-								<div className='flex items-center'>
-									<div className='flex items-center pr-2'>
-										<div className='pr-0.25'><IoBedOutline /></div>1
-									</div>
-									<div className='flex items-center pr-2'>
-										<div className='pr-0.25'><GiBathtub /></div>1
-									</div>
-									<div className='flex items-center pr-2'>
-										<div className='pr-0.25'><FaCarSide /></div>1
-									</div>
-								</div>
-
-								<h2 className="card-title text-4xl">$700</h2>
-							</div>
-
-							<p>This modern property..</p>
-						</div>
-					</div>
 				</div>
 			</div>
 		</>
