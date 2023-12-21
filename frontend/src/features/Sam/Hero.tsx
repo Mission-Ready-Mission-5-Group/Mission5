@@ -8,7 +8,7 @@ import { BsSuitHeart } from 'react-icons/bs';
 import { IoBedOutline, IoLocationOutline } from 'react-icons/io5';
 import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 import { FaCarSide } from "react-icons/fa6";
-import { Listing } from '../types/Listing';
+import { ListingDocument } from '../types/Listing';
 /* 
 				<div className="absolute bg-[#333333] inset-0 flex justify-center items-center">
 */
@@ -44,7 +44,7 @@ const Hero = () => {
 	const filtersButtonRef = useRef<HTMLDivElement>()
 
 	// Listings
-	const [listings, setListings] = useState<Listing[]>([])
+	const [listings, setListings] = useState<ListingDocument[]>([])
 
 	// ############################ Methods ###############################
 	// 
@@ -190,39 +190,49 @@ import { GiBathtub, GiHomeGarage } from 'react-icons/gi';
 				<p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde harum cum voluptates velit nihil pariatur magnam hic impedit et, neque laborum aspernatur reiciendis aliquam ipsam repellat omnis. Illum, laborum obcaecati.</p>
 
 
- 				{listings.map(listing=>{
-					return <h1>testing!</h1>
+				{/* <div key={"as"+listing._id}>
+								<h1>testing!</h1>
+								<img key={listing._id} src={listing.propertyImages[0]} alt="Shoes" />
+							</div> */}
+				{/* Card Container */}
+				{listings.map(listing => {
+					return (
+						<div className="flex flex-wrap" key={listing._id}>
+							{/* Card */}
+							<div className="card w-[24rem] bg-base-100 rounded-none m-4">
+								<figure className='relative'>
+									<img src={listing.propertyImages[0]} alt="Shoes" />
+									<div className='absolute top-4 right-4'><BsSuitHeart /></div>
+								</figure>
+								<div className="card-body p-4 pt-6 pb-6">
+									<div className='flex items-center place-content-between '>
+										<div className='flex items-center'>
+											<div className='flex items-center pr-2'>
+												<div className='pr-0.25'><IoBedOutline /></div>1
+											</div>
+											<div className='flex items-center pr-2'>
+												<div className='pr-0.25'><GiBathtub /></div>1
+											</div>
+											<div className='flex items-center pr-2'>
+												<div className='pr-0.25'><FaCarSide /></div>1
+											</div>
+										</div>
+
+										<h2 className="card-title text-4xl">${listing.price}</h2>
+									</div>
+
+									<p>This modern property..</p>
+								</div>
+							</div>
+						</div>
+
+
+					)
 				})}
 
-				{/* Card Container */}
-				<div className="flex flex-wrap">
-					{/* Card */}
-					<div className="card w-[24rem] bg-base-100 rounded-none m-4">
-						<figure className='relative'>
-							<img src="/src/assets/houses/house2.jpg" alt="Shoes" />
-							<div className='absolute top-4 right-4'><BsSuitHeart /></div>
-						</figure>
-						<div className="card-body p-4 pt-6 pb-6">
-							<div className='flex items-center place-content-between '>
-								<div className='flex items-center'>
-									<div className='flex items-center pr-2'>
-										<div className='pr-0.25'><IoBedOutline /></div>1
-									</div>
-									<div className='flex items-center pr-2'>
-										<div className='pr-0.25'><GiBathtub /></div>1
-									</div>
-									<div className='flex items-center pr-2'>
-										<div className='pr-0.25'><FaCarSide /></div>1
-									</div>
-								</div>
 
-								<h2 className="card-title text-4xl">$700</h2>
-							</div>
 
-							<p>This modern property..</p>
-						</div>
-					</div>
-				</div>
+
 			</div>
 		</>
 	);
