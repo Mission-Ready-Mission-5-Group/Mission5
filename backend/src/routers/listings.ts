@@ -19,25 +19,46 @@ router.get("/search/", async (req, res) => {
 
 		console.log("search\t")
 		console.log("req.query\t", req.query)
-		const { location, petFriendly, hasElevators, furnished, gym, park, supermarket, cinema, swimmingPool } = req.query
+		const { location, petFriendly, hasElevators, furnished, tags, gym, park, supermarket, cinema, swimmingPool } = req.query
+
+		let filteredTags:string[] = []
+		if (tags && typeof tags === "string"){
+			filteredTags = tags.split(" ")
+			console.log("tags\t",filteredTags)
+
+			// filteredTags  eg: [ 'auck', 'well' ]
+		}
 
 		/* WARNING TO FUTURE ME */
 		/* 
 			location - location can either be for CITY or for SUBURB
 		*/
-		type DbSearchQuery = {
-			$or?: [{ city?: RegExp }, { suburb?: RegExp }];
-			petFriendly?: boolean;
-			hasElevators?: boolean;
-			furnished?: boolean;
-			// Add other search criteria as needed
-		  }
+
+
+		// $or: [
+		// 	{ city: { $in: filteredTags.map(tag => new RegExp(tag, 'i')) } },
+		// 	{ suburb: { $in: filteredTags.map(tag => new RegExp(tag, 'i')) } }
+		//   ],
+
+
+
+		// !@#!@#@! #@!# !@# !@# @!# !@# !@# !@#@! #!@#!@# !@ #!@ !@#!@#!@ #!@# !TURNED OFF    DbSearchQuery    TYPESAFETY FOR PRESENTATION!!!!!! !@#!@#!@#!@#!@#@!#@!#
+
+		// type DbSearchQuery = {
+		// 	$or?: [{ city?: RegExp | any }, { suburb?: RegExp| any }];
+		// 	petFriendly?: boolean;
+		// 	hasElevators?: boolean;
+		// 	furnished?: boolean;
+		// 	// Add other search criteria as needed
+		//   }
 
 		// db search query
-		const dbSearchQuery: DbSearchQuery = {}
+		const dbSearchQuery:any = {}
 		if (location && typeof location === "string") dbSearchQuery["$or"] = [
 			{city: new RegExp(location, 'i')},
-			{suburb: new RegExp(location, 'i')}
+			{suburb: new RegExp(location, 'i')},
+			{ suburb: { $in: filteredTags.map(tag => new RegExp(tag, 'i')) } },
+			{ city: { $in: filteredTags.map(tag => new RegExp(tag, 'i')) } }
 		]
 		if (petFriendly === "1") dbSearchQuery.petFriendly = true;
 		if (hasElevators === "1") dbSearchQuery.hasElevators = true;
@@ -45,16 +66,30 @@ router.get("/search/", async (req, res) => {
 
 
 		const listings = await listing.find(dbSearchQuery)
-		console.log("listings \y", listings)
+		
 
-		// if (gym === "1") dbSearchQuery.gym = gym;
-		// if (park === "1") dbSearchQuery.park = park;
-		// if (supermarket === "1") dbSearchQuery.supermarket = supermarket;
-		// if (cinema === "1") dbSearchQuery.cinema = cinema;
-		// if (swimmingPool === "1") dbSearchQuery.swimmingPool = swimmingPool;
+
+
 
 
 		res.json(listings)
+
+
+
+		// GENERATED
+
+		// const listings = await listing.find({
+		// 	$or: [
+		// 	  { city: { $in: filteredTags.map(tag => new RegExp(tag, 'i')) } },
+		// 	  { suburb: { $in: filteredTags.map(tag => new RegExp(tag, 'i')) } },
+		// 	  { city: new RegExp(location, 'i') },
+		// 	  { suburb: new RegExp(location, 'i') }
+		// 	],
+		// 	petFriendly: petFriendly === "1",
+		// 	hasElevators: hasElevators === "1",
+		// 	furnished: furnished === "1",
+		//   });
+		//   res.json(listings)
 	} catch (err) {
 		res.status(400).send("ERROR: " + err)
 	}
