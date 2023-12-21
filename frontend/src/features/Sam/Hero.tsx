@@ -48,7 +48,7 @@ const Hero = () => {
 	const [listings, setListings] = useState<ListingDocument[]>([])
 
 	// Search
-	const [search, setSearch] = useState<string>("")
+	const [searchText, setSearchText] = useState<string>("")
 
 	// ############################ Methods ###############################
 	// 
@@ -80,13 +80,18 @@ const Hero = () => {
 	const getProperties = () => {
 		const sendRequest = async () => {
 			try {
-
+				// Create tags
+				// const tags = searchText.split(" ").filter(element=>element!=="")
+				// console.log("tags\t",tags)
+				// console.log(tags.map(tag=>`tag=${tag}`).join("&"))
+				const tags = searchText !== "" ?  `tags=${encodeURIComponent(searchText)}` : ""
+				
 				// Create query string
 				const queryString = filters.map(filter => `${filter}=1`).join().replace(/\,/g, "&")
 				console.log("queryString\t", queryString)
 
 				// Create url
-				const reqUrl = `/api/listings/search?location=${location}&${queryString}`
+				const reqUrl = `/api/listings/search?location=${location}&${queryString}&${tags}`
 				console.log("Sent request\t", reqUrl)
 
 				const res = await fetch(reqUrl)
@@ -100,7 +105,11 @@ const Hero = () => {
 		}
 		sendRequest()
 	}
-
+	
+	const updateSearchText = (searchText:string) => {
+		console.log("searchText\t",searchText)
+		setSearchText(searchText)
+	}
 
 	// ############################ Hooks ###############################
 	useEffect(() => {
@@ -134,7 +143,7 @@ const Hero = () => {
 
 						{/* FIRST ROW */}
 						{/* <input type="text" placeholder="Quick Search" className="input w-[100%] max-w-xs  bg-opacity-10 text-white border-solid border-01 border-gray-500" /> */}
-						<input className='p-2 rounded bg-transparent border border-gray-400 text-white' placeholder='Quick Search...'/>
+						<input onChange={e=>updateSearchText(e.target.value)} className='p-2 rounded bg-transparent border border-gray-400 text-white' placeholder='Quick Search...' value={searchText}/>
 						
 						
 						

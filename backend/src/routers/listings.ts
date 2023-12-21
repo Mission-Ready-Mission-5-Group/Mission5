@@ -45,7 +45,7 @@ router.get("/search/", async (req, res) => {
 
 
 		const listings = await listing.find(dbSearchQuery)
-		console.log("listings \y", listings)
+		// console.log("listings \y", listings)
 
 		// if (gym === "1") dbSearchQuery.gym = gym;
 		// if (park === "1") dbSearchQuery.park = park;
